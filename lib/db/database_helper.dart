@@ -11,7 +11,7 @@ class DatabaseHelper {
 
   static final DatabaseHelper instance = DatabaseHelper._();
   static const _databaseName = 'catatan.db';
-  static const _databaseVersion = 1;
+  static const _databaseVersion = 2;
   final String? _databasePath;
   Future<Database>? _database;
 
@@ -38,9 +38,25 @@ class DatabaseHelper {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             title TEXT NOT NULL,
             content TEXT NOT NULL,
-            created_at TEXT NOT NULL
+            created_at TEXT NOT NULL,
+            category TEXT NOT NULL DEFAULT 'Pribadi',
+            color_index INTEGER NOT NULL DEFAULT 0,
+            is_pinned INTEGER NOT NULL DEFAULT 0
           )
         ''');
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        if (oldVersion < 2) {
+          await db.execute(
+            "ALTER TABLE notes ADD COLUMN category TEXT NOT NULL DEFAULT 'Pribadi'",
+          );
+          await db.execute(
+            'ALTER TABLE notes ADD COLUMN color_index INTEGER NOT NULL DEFAULT 0',
+          );
+          await db.execute(
+            'ALTER TABLE notes ADD COLUMN is_pinned INTEGER NOT NULL DEFAULT 0',
+          );
+        }
       },
     );
   }
@@ -49,7 +65,8 @@ class DatabaseHelper {
     final db = await database;
     final rows = await db.query(
       'notes',
-      orderBy: 'created_at ${newestFirst ? 'DESC' : 'ASC'}',
+      orderBy:
+          'is_pinned DESC, created_at ${newestFirst ? 'DESC' : 'ASC'}, id DESC',
     );
     return rows.map(Note.fromMap).toList();
   }

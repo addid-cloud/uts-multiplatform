@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'services/settings_service.dart';
+import 'theme/app_theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,12 +46,8 @@ class _CatatanAppState extends State<CatatanApp> {
       title: 'Catatan Harian',
       debugShowCheckedModeBanner: false,
       themeMode: _dark ? ThemeMode.dark : ThemeMode.light,
-      theme: ThemeData(colorSchemeSeed: Colors.indigo, useMaterial3: true),
-      darkTheme: ThemeData(
-        colorSchemeSeed: Colors.indigo,
-        brightness: Brightness.dark,
-        useMaterial3: true,
-      ),
+      theme: AppTheme.build(Brightness.light),
+      darkTheme: AppTheme.build(Brightness.dark),
       home: HomeScreen(isDark: _dark, onToggleTheme: _toggleTheme),
     );
   }

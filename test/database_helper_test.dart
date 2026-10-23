@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
+import 'package:path/path.dart' as path;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:uts/db/database_helper.dart';
 import 'package:uts/models/note.dart';
@@ -13,7 +16,13 @@ void main() {
     final database = DatabaseHelper.forTesting(
       databasePath: inMemoryDatabasePath,
     );
-    final note = Note(title: 'Catatan baru', content: 'Isi catatan');
+    final note = Note(
+      title: 'Catatan baru',
+      content: 'Isi catatan',
+      category: 'Kuliah',
+      colorIndex: 2,
+      isPinned: true,
+    );
 
     final id = await database.insert(note);
     final inserted = await database.getNotes();
@@ -22,6 +31,9 @@ void main() {
     expect(inserted.single.id, id);
     expect(inserted.single.title, note.title);
     expect(inserted.single.content, note.content);
+    expect(inserted.single.category, 'Kuliah');
+    expect(inserted.single.colorIndex, 2);
+    expect(inserted.single.isPinned, isTrue);
 
     final updated = Note(
       id: id,
@@ -44,5 +56,44 @@ void main() {
     final databases = await Future.wait([helper.database, helper.database]);
 
     expect(identical(databases[0], databases[1]), isTrue);
+  });
+
+  test('migrates existing notes without losing their content', () async {
+    final folder = await Directory.systemTemp.createTemp('catatan_migration_');
+    final dbPath = path.join(folder.path, 'legacy.db');
+    final legacy = await openDatabase(
+      dbPath,
+      version: 1,
+      onCreate: (db, _) async {
+        await db.execute(
+          'CREATE TABLE notes(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, content TEXT NOT NULL, created_at TEXT NOT NULL)',
+        );
+      },
+    );
+    await legacy.insert('notes', {
+      'title': 'Catatan lama',
+      'content': 'Tetap tersimpan',
+      'created_at': '2026-01-01T10:00:00.000',
+    });
+    await legacy.close();
+    final helper = DatabaseHelper.forTesting(databasePath: dbPath);
+    try {
+      final notes = await helper.getNotes();
+      expect(notes.single.title, 'Catatan lama');
+      expect(notes.single.content, 'Tetap tersimpan');
+      expect(notes.single.category, 'Pribadi');
+      expect(notes.single.colorIndex, 0);
+      expect(notes.single.isPinned, isFalse);
+      await helper.update(notes.single.copyWith(isPinned: true));
+      await helper.insert(Note(title: 'Lebih baru', content: 'Catatan kedua'));
+      for (final newest in [true, false]) {
+        final sorted = await helper.getNotes(newestFirst: newest);
+        expect(sorted.first.title, 'Catatan lama');
+        expect(sorted.first.isPinned, isTrue);
+      }
+    } finally {
+      await (await helper.database).close();
+      await folder.delete(recursive: true);
+    }
   });
 }
