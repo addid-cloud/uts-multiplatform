@@ -34,17 +34,17 @@ Aplikasi menggunakan **SQLite** untuk menyimpan catatan dan **Shared Preferences
 
 Proyek ini disusun untuk pembelajaran **Multiplatform**, dengan penerapan antarmuka Flutter, navigasi antarlayar, pengelolaan state, operasi asinkron, penyimpanan lokal, dan pengujian otomatis. Antarmuka memakai Material 3 dengan nuansa sage dan krem, empat warna kartu, serta tema gelap.
 
-| Ringkasan proyek       | Keterangan                                                   |
-| ---------------------- | ------------------------------------------------------------ |
-| Nama aplikasi          | Catatan Harian                                               |
-| Nama package Dart      | `uts`                                                        |
-| Versi aplikasi         | `1.0.0+1`                                                    |
-| Bahasa dan framework   | Dart dan Flutter                                             |
-| Penyimpanan catatan    | SQLite, database `catatan.db`                                |
-| Penyimpanan preferensi | Shared Preferences                                           |
-| Fokus verifikasi build | Android, APK debug berhasil dibuat                           |
-| Pemeriksaan terakhir   | 23 Oktober 2026: 14 tes lulus, analisis statis tanpa masalah |
-| Dokumentasi tambahan   | Laporan Word 12 halaman, PDF, dan 8 screenshot               |
+| Ringkasan proyek | Keterangan |
+| --- | --- |
+| Nama aplikasi | Catatan Harian |
+| Nama package Dart | `uts` |
+| Versi aplikasi | `1.0.0+1` |
+| Bahasa dan framework | Dart dan Flutter |
+| Penyimpanan catatan | SQLite, database `catatan.db` |
+| Penyimpanan preferensi | Shared Preferences |
+| Fokus verifikasi build | Android, APK debug berhasil dibuat |
+| Pemeriksaan terakhir | 23 Oktober 2026: 14 tes lulus, analisis statis tanpa masalah |
+| Dokumentasi tambahan | Laporan Word 12 halaman, PDF, dan 8 screenshot |
 
 > Badge dan hasil pemeriksaan di README merupakan catatan verifikasi pada tanggal di atas, bukan status CI yang diperbarui otomatis. Rincian dukungan platform tersedia pada bagian [platform](#platform).
 
@@ -78,39 +78,39 @@ Proyek ini disusun untuk pembelajaran **Multiplatform**, dengan penerapan antarm
 
 ### Menulis dan mengelola catatan
 
-| Fitur                | Perilaku yang tersedia                                                                      |
-| -------------------- | ------------------------------------------------------------------------------------------- |
-| Tambah catatan       | Menulis judul dan isi lalu menyimpannya ke SQLite.                                          |
-| Baca dan edit        | Mengetuk kartu untuk membuka editor dengan data catatan yang sudah ada.                     |
-| Hapus catatan        | Menghapus melalui menu kartu setelah menyetujui dialog konfirmasi.                          |
-| Validasi form        | Menolak judul dan isi yang kosong, termasuk isian yang hanya berisi spasi.                  |
-| Penghitung kata      | Menampilkan jumlah kata pada editor dan kartu berdasarkan isi catatan.                      |
+| Fitur | Perilaku yang tersedia |
+| --- | --- |
+| Tambah catatan | Menulis judul dan isi lalu menyimpannya ke SQLite. |
+| Baca dan edit | Mengetuk kartu untuk membuka editor dengan data catatan yang sudah ada. |
+| Hapus catatan | Menghapus melalui menu kartu setelah menyetujui dialog konfirmasi. |
+| Validasi form | Menolak judul dan isi yang kosong, termasuk isian yang hanya berisi spasi. |
+| Penghitung kata | Menampilkan jumlah kata pada editor dan kartu berdasarkan isi catatan. |
 | Konfirmasi perubahan | Meminta keputusan pengguna ketika editor ditinggalkan dengan perubahan yang belum disimpan. |
 
 ### Menata koleksi
 
-| Fitur             | Perilaku yang tersedia                                                         |
-| ----------------- | ------------------------------------------------------------------------------ |
-| Pencarian         | Menelusuri judul dan isi tanpa membedakan huruf besar/kecil.                   |
-| Kategori          | Pilihan **Pribadi**, **Kuliah**, **Kerja**, dan **Ide**.                       |
-| Filter gabungan   | Memakai kata kunci, kategori, dan status sematan secara bersamaan.             |
-| Sematkan catatan  | Memprioritaskan catatan penting di bagian atas koleksi.                        |
-| Urutan waktu      | Memilih terbaru atau terlama; catatan yang disematkan tetap berada di atas.    |
-| Grid dan daftar   | Mengubah tata letak koleksi; grid menyesuaikan jumlah kolom dengan lebar area. |
-| Ringkasan beranda | Menampilkan total catatan dan jumlah catatan yang dibuat hari ini.             |
-| Muat ulang        | Menarik beranda ke bawah untuk memuat ulang catatan dari database.             |
+| Fitur | Perilaku yang tersedia |
+| --- | --- |
+| Pencarian | Menelusuri judul dan isi tanpa membedakan huruf besar/kecil. |
+| Kategori | Pilihan **Pribadi**, **Kuliah**, **Kerja**, dan **Ide**. |
+| Filter gabungan | Memakai kata kunci, kategori, dan status sematan secara bersamaan. |
+| Sematkan catatan | Memprioritaskan catatan penting di bagian atas koleksi. |
+| Urutan waktu | Memilih terbaru atau terlama; catatan yang disematkan tetap berada di atas. |
+| Grid dan daftar | Mengubah tata letak koleksi; grid menyesuaikan jumlah kolom dengan lebar area. |
+| Ringkasan beranda | Menampilkan total catatan dan jumlah catatan yang dibuat hari ini. |
+| Muat ulang | Menarik beranda ke bawah untuk memuat ulang catatan dari database. |
 
 ### Personalisasi dan umpan balik
 
-| Fitur                | Perilaku yang tersedia                                                                 |
-| -------------------- | -------------------------------------------------------------------------------------- |
-| Tema terang/gelap    | Mengganti tema melalui ikon di kanan atas beranda.                                     |
-| Warna kartu          | Memilih palet **Sage**, **Pasir**, **Langit**, atau **Rose**.                          |
-| Preferensi tersimpan | Tema serta urutan terbaru/terlama dipulihkan ketika aplikasi dibuka kembali.           |
-| Indikator proses     | Menampilkan loading saat memuat dan status menyimpan pada editor.                      |
-| Penanganan kegagalan | Menampilkan pesan ketika operasi gagal atau melewati batas waktu.                      |
-| Coba lagi            | Menyediakan tombol untuk memuat ulang koleksi setelah gagal memuat.                    |
-| Keadaan kosong       | Membedakan koleksi yang belum berisi catatan dengan hasil filter yang tidak ditemukan. |
+| Fitur | Perilaku yang tersedia |
+| --- | --- |
+| Tema terang/gelap | Mengganti tema melalui ikon di kanan atas beranda. |
+| Warna kartu | Memilih palet **Sage**, **Pasir**, **Langit**, atau **Rose**. |
+| Preferensi tersimpan | Tema serta urutan terbaru/terlama dipulihkan ketika aplikasi dibuka kembali. |
+| Indikator proses | Menampilkan loading saat memuat dan status menyimpan pada editor. |
+| Penanganan kegagalan | Menampilkan pesan ketika operasi gagal atau melewati batas waktu. |
+| Coba lagi | Menyediakan tombol untuk memuat ulang koleksi setelah gagal memuat. |
+| Keadaan kosong | Membedakan koleksi yang belum berisi catatan dengan hasil filter yang tidak ditemukan. |
 
 [↑ Kembali ke atas](#atas)
 
@@ -183,22 +183,22 @@ Desain aplikasi mengutamakan area menulis yang lapang, hierarki judul yang jelas
 <img src="docs/assets/palet-warna.svg" alt="Palet Sage, Pasir, Langit, dan Rose; baris atas tema terang dan baris bawah tema gelap" width="100%" />
 
 | Warna kartu | Tema terang | Tema gelap | Indeks penyimpanan |
-| ----------- | ----------- | ---------- | ------------------ |
-| Sage        | `#EAF0E3`   | `#263C30`  | `0`                |
-| Pasir       | `#FAEDD9`   | `#403727`  | `1`                |
-| Langit      | `#E8EDF6`   | `#293547`  | `2`                |
-| Rose        | `#F3E5E2`   | `#422E2D`  | `3`                |
+| --- | --- | --- | --- |
+| Sage | `#EAF0E3` | `#263C30` | `0` |
+| Pasir | `#FAEDD9` | `#403727` | `1` |
+| Langit | `#E8EDF6` | `#293547` | `2` |
+| Rose | `#F3E5E2` | `#422E2D` | `3` |
 
 Warna utama adalah `#315E4B`. Pemilihan warna kartu bersifat visual dan terpisah dari kategori: catatan Kuliah, misalnya, tidak wajib memakai warna tertentu. Gaya komponen dan palet terpusat di [app_theme.dart](lib/theme/app_theme.dart).
 
 Pada mode grid, jumlah kolom mengikuti **lebar area koleksi setelah padding**:
 
-| Lebar area koleksi           | Jumlah kolom |
-| ---------------------------- | ------------ |
-| Kurang dari 520 piksel logis | 1            |
-| 520–849 piksel logis         | 2            |
-| Mulai 850 piksel logis       | 3            |
-| Mode daftar                  | Selalu 1     |
+| Lebar area koleksi | Jumlah kolom |
+| --- | --- |
+| Kurang dari 520 piksel logis | 1 |
+| 520–849 piksel logis | 2 |
+| Mulai 850 piksel logis | 3 |
+| Mode daftar | Selalu 1 |
 
 ---
 
@@ -206,18 +206,18 @@ Pada mode grid, jumlah kolom mengikuti **lebar area koleksi setelah padding**:
 
 ## Teknologi dan dependensi
 
-| Komponen             | Versi/acuan proyek                           | Peran                                  |
-| -------------------- | -------------------------------------------- | -------------------------------------- |
-| Flutter              | Diperiksa dengan `3.35.5`                    | Framework antarmuka dan aplikasi.      |
-| Dart                 | Diperiksa dengan `3.9.2`; batas SDK `^3.9.2` | Bahasa pemrograman.                    |
-| Material 3           | `useMaterial3: true`                         | Komponen, tema, dan interaksi.         |
-| `sqflite`            | `^2.4.2`                                     | Operasi SQLite lokal.                  |
-| `path`               | `^1.9.1`                                     | Menyusun lokasi file database.         |
-| `shared_preferences` | `^2.5.5`                                     | Menyimpan preferensi boolean.          |
-| `cupertino_icons`    | `^1.0.8`                                     | Paket ikon yang tersedia dalam proyek. |
-| `flutter_test`       | Dari Flutter SDK                             | Pengujian interaksi widget.            |
-| `sqflite_common_ffi` | `^2.3.7+1`, dependensi pengembangan          | Backend database pada pengujian.       |
-| `flutter_lints`      | `^5.0.0`                                     | Aturan analisis statis Dart/Flutter.   |
+| Komponen | Versi/acuan proyek | Peran |
+| --- | --- | --- |
+| Flutter | Diperiksa dengan `3.35.5` | Framework antarmuka dan aplikasi. |
+| Dart | Diperiksa dengan `3.9.2`; batas SDK `^3.9.2` | Bahasa pemrograman. |
+| Material 3 | `useMaterial3: true` | Komponen, tema, dan interaksi. |
+| `sqflite` | `^2.4.2` | Operasi SQLite lokal. |
+| `path` | `^1.9.1` | Menyusun lokasi file database. |
+| `shared_preferences` | `^2.5.5` | Menyimpan preferensi boolean. |
+| `cupertino_icons` | `^1.0.8` | Paket ikon yang tersedia dalam proyek. |
+| `flutter_test` | Dari Flutter SDK | Pengujian interaksi widget. |
+| `sqflite_common_ffi` | `^2.3.7+1`, dependensi pengembangan | Backend database pada pengujian. |
+| `flutter_lints` | `^5.0.0` | Aturan analisis statis Dart/Flutter. |
 
 Nilai dengan awalan `^` merupakan **batas versi pada deklarasi dependensi**, bukan jaminan versi yang persis terpasang. Deklarasi tersedia di [pubspec.yaml](pubspec.yaml), sedangkan hasil resolusi tercatat di [pubspec.lock](pubspec.lock).
 
@@ -295,14 +295,14 @@ Selama proses pengembangan melalui `flutter run`, tombol `r` pada terminal menja
 
 Folder platform tersedia dalam proyek Flutter, tetapi ketersediaan folder belum berarti seluruh alur aplikasi telah diverifikasi pada platform tersebut.
 
-| Platform | Konfigurasi penyimpanan aplikasi                      | Status verifikasi                                                                       |
-| -------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Android  | Menggunakan `sqflite`.                                | APK debug berhasil dibuat; pengujian perangkat fisik belum didokumentasikan.            |
-| iOS      | Menggunakan backend `sqflite` untuk platform terkait. | Belum diverifikasi pada pengerjaan ini; membutuhkan lingkungan build Apple yang sesuai. |
-| macOS    | Menggunakan backend `sqflite` untuk platform terkait. | Belum diverifikasi pada pengerjaan ini.                                                 |
-| Windows  | Backend SQLite aplikasi belum diinisialisasi.         | Memerlukan konfigurasi tambahan.                                                        |
-| Linux    | Backend SQLite aplikasi belum diinisialisasi.         | Memerlukan konfigurasi tambahan.                                                        |
-| Web      | Backend penyimpanan web belum dikonfigurasi.          | Memerlukan konfigurasi tambahan.                                                        |
+| Platform | Konfigurasi penyimpanan aplikasi | Status verifikasi |
+| --- | --- | --- |
+| Android | Menggunakan `sqflite`. | APK debug berhasil dibuat; pengujian perangkat fisik belum didokumentasikan. |
+| iOS | Menggunakan backend `sqflite` untuk platform terkait. | Belum diverifikasi pada pengerjaan ini; membutuhkan lingkungan build Apple yang sesuai. |
+| macOS | Menggunakan backend `sqflite` untuk platform terkait. | Belum diverifikasi pada pengerjaan ini. |
+| Windows | Backend SQLite aplikasi belum diinisialisasi. | Memerlukan konfigurasi tambahan. |
+| Linux | Backend SQLite aplikasi belum diinisialisasi. | Memerlukan konfigurasi tambahan. |
+| Web | Backend penyimpanan web belum dikonfigurasi. | Memerlukan konfigurasi tambahan. |
 
 `sqflite_common_ffi` saat ini berada pada **dev_dependencies** dan dipakai untuk pengujian database. Paket tersebut belum dijadikan backend penyimpanan aplikasi Windows atau Linux.
 
@@ -335,12 +335,12 @@ Jika pengguna kembali sebelum menyimpan perubahan, aplikasi menampilkan dialog d
 
 Buka **Atur catatan** pada editor, kemudian pilih salah satu kategori berikut:
 
-| Kategori | Contoh penggunaan                                              |
-| -------- | -------------------------------------------------------------- |
-| Pribadi  | Jurnal singkat, rencana akhir pekan, atau daftar kegiatan.     |
-| Kuliah   | Ringkasan materi, persiapan ujian, dan ide tugas.              |
-| Kerja    | Rencana pekerjaan, catatan rapat, atau poin tindak lanjut.     |
-| Ide      | Konsep proyek, inspirasi, dan gagasan yang ingin dikembangkan. |
+| Kategori | Contoh penggunaan |
+| --- | --- |
+| Pribadi | Jurnal singkat, rencana akhir pekan, atau daftar kegiatan. |
+| Kuliah | Ringkasan materi, persiapan ujian, dan ide tugas. |
+| Kerja | Rencana pekerjaan, catatan rapat, atau poin tindak lanjut. |
+| Ide | Konsep proyek, inspirasi, dan gagasan yang ingin dikembangkan. |
 
 Empat kategori tersebut merupakan pilihan tetap pada aplikasi saat ini. Pengguna dapat memilih warna kartu secara terpisah sesuai selera.
 
@@ -372,12 +372,12 @@ Tombol silang membersihkan kata kunci pencarian. Jika tidak ada hasil, tombol **
 
 ### Mengubah tampilan, urutan, dan tema
 
-| Kontrol                        | Efek                              |
-| ------------------------------ | --------------------------------- |
-| Tombol panah pada koleksi      | Mengubah urutan terbaru/terlama.  |
-| Tombol tata letak              | Beralih antara grid dan daftar.   |
-| Ikon bulan/matahari di beranda | Mengganti tema terang/gelap.      |
-| Tarik beranda ke bawah         | Memuat ulang koleksi dari SQLite. |
+| Kontrol | Efek |
+| --- | --- |
+| Tombol panah pada koleksi | Mengubah urutan terbaru/terlama. |
+| Tombol tata letak | Beralih antara grid dan daftar. |
+| Ikon bulan/matahari di beranda | Mengganti tema terang/gelap. |
+| Tarik beranda ke bawah | Memuat ulang koleksi dari SQLite. |
 
 Tema dan urutan disimpan sebagai preferensi. Grid/daftar, kata kunci, dan filter saat ini hanya disimpan pada state layar selama pengguna memakainya.
 
@@ -412,15 +412,15 @@ flowchart TD
     G --> I[Model Note]
 ```
 
-| Bagian            | Tanggung jawab                                                               |
-| ----------------- | ---------------------------------------------------------------------------- |
-| `CatatanApp`      | Menginisialisasi aplikasi, membaca tema, dan menyediakan `MaterialApp`.      |
-| `HomeScreen`      | Memuat koleksi, mencari, memfilter, mengurutkan, serta menangani aksi kartu. |
-| `NoteFormScreen`  | Mengelola isian, validasi, pilihan kategori/warna, dan penyimpanan catatan.  |
-| `Note`            | Merepresentasikan data dan mengonversi antara objek Dart dengan `Map`.       |
-| `DatabaseHelper`  | Menginisialisasi database, menjalankan migrasi, dan menyediakan CRUD.        |
-| `SettingsService` | Membaca serta menulis preferensi tema dan urutan.                            |
-| `AppTheme`        | Memusatkan warna, gaya komponen, serta tema terang/gelap.                    |
+| Bagian | Tanggung jawab |
+| --- | --- |
+| `CatatanApp` | Menginisialisasi aplikasi, membaca tema, dan menyediakan `MaterialApp`. |
+| `HomeScreen` | Memuat koleksi, mencari, memfilter, mengurutkan, serta menangani aksi kartu. |
+| `NoteFormScreen` | Mengelola isian, validasi, pilihan kategori/warna, dan penyimpanan catatan. |
+| `Note` | Merepresentasikan data dan mengonversi antara objek Dart dengan `Map`. |
+| `DatabaseHelper` | Menginisialisasi database, menjalankan migrasi, dan menyediakan CRUD. |
+| `SettingsService` | Membaca serta menulis preferensi tema dan urutan. |
+| `AppTheme` | Memusatkan warna, gaya komponen, serta tema terang/gelap. |
 
 Pengelolaan state antarmuka menggunakan **StatefulWidget** dan **setState**. Navigasi editor menggunakan `Navigator` dengan `MaterialPageRoute`, sedangkan operasi database memakai `Future` dan `async/await`.
 
@@ -525,13 +525,13 @@ Contoh tersebut hanya membentuk objek. Untuk menyimpannya, aplikasi memanggil op
 
 ### Skema SQLite
 
-| Properti database | Nilai                                                 |
-| ----------------- | ----------------------------------------------------- |
-| Nama file         | `catatan.db`                                          |
-| Versi skema       | `2`                                                   |
-| Nama tabel        | `notes`                                               |
-| Lokasi            | Direktori database aplikasi dari `getDatabasesPath()` |
-| Inisialisasi      | Dibuat otomatis saat akses database pertama           |
+| Properti database | Nilai |
+| --- | --- |
+| Nama file | `catatan.db` |
+| Versi skema | `2` |
+| Nama tabel | `notes` |
+| Lokasi | Direktori database aplikasi dari `getDatabasesPath()` |
+| Inisialisasi | Dibuat otomatis saat akses database pertama |
 
 ```sql
 CREATE TABLE notes (
@@ -545,24 +545,24 @@ CREATE TABLE notes (
 );
 ```
 
-| Kolom         | Representasi | Keterangan                                               |
-| ------------- | ------------ | -------------------------------------------------------- |
-| `id`          | `INTEGER`    | Identitas unik, bertambah otomatis.                      |
-| `title`       | `TEXT`       | Judul catatan.                                           |
-| `content`     | `TEXT`       | Isi catatan.                                             |
-| `created_at`  | `TEXT`       | Waktu pembuatan dalam format ISO 8601.                   |
-| `category`    | `TEXT`       | Kategori; nilai awal `Pribadi`.                          |
-| `color_index` | `INTEGER`    | Indeks palet `0` sampai `3` pada pilihan warna aplikasi. |
-| `is_pinned`   | `INTEGER`    | `1` untuk disematkan dan `0` untuk tidak.                |
+| Kolom | Representasi | Keterangan |
+| --- | --- | --- |
+| `id` | `INTEGER` | Identitas unik, bertambah otomatis. |
+| `title` | `TEXT` | Judul catatan. |
+| `content` | `TEXT` | Isi catatan. |
+| `created_at` | `TEXT` | Waktu pembuatan dalam format ISO 8601. |
+| `category` | `TEXT` | Kategori; nilai awal `Pribadi`. |
+| `color_index` | `INTEGER` | Indeks palet `0` sampai `3` pada pilihan warna aplikasi. |
+| `is_pinned` | `INTEGER` | `1` untuk disematkan dan `0` untuk tidak. |
 
 ### Operasi CRUD
 
-| Metode                                | Fungsi                                                     |
-| ------------------------------------- | ---------------------------------------------------------- |
+| Metode | Fungsi |
+| --- | --- |
 | `getNotes({bool newestFirst = true})` | Membaca catatan dengan prioritas sematan dan urutan waktu. |
-| `insert(Note note)`                   | Menambahkan catatan dan mengembalikan ID hasil insert.     |
-| `update(Note note)`                   | Memperbarui data yang memiliki ID sesuai.                  |
-| `delete(int id)`                      | Menghapus catatan berdasarkan ID.                          |
+| `insert(Note note)` | Menambahkan catatan dan mengembalikan ID hasil insert. |
+| `update(Note note)` | Memperbarui data yang memiliki ID sesuai. |
+| `delete(int id)` | Menghapus catatan berdasarkan ID. |
 
 Update dan delete memakai `where: 'id = ?'` dengan `whereArgs`. Waktu pembuatan dipertahankan ketika catatan diedit. Detail implementasi ada di [database_helper.dart](lib/db/database_helper.dart).
 
@@ -580,14 +580,14 @@ Migrasi tersebut mempertahankan tabel serta isi catatan lama. Catatan lama mempe
 
 ### Shared Preferences dan state layar
 
-| Nilai                                       | Tempat penyimpanan          | Bertahan saat aplikasi dibuka ulang? |
-| ------------------------------------------- | --------------------------- | ------------------------------------ |
-| Judul, isi, waktu, kategori, warna, sematan | SQLite                      | Ya.                                  |
-| Tema, key `dark_mode`                       | Shared Preferences          | Ya.                                  |
-| Urutan, key `sort_newest`                   | Shared Preferences          | Ya.                                  |
-| Tampilan grid/daftar                        | State `HomeScreen`          | Tidak dipersistenkan.                |
-| Kata kunci dan filter aktif                 | State `HomeScreen`          | Tidak dipersistenkan.                |
-| Perubahan editor sebelum Simpan             | Controller dan state editor | Belum tersimpan.                     |
+| Nilai | Tempat penyimpanan | Bertahan saat aplikasi dibuka ulang? |
+| --- | --- | --- |
+| Judul, isi, waktu, kategori, warna, sematan | SQLite | Ya. |
+| Tema, key `dark_mode` | Shared Preferences | Ya. |
+| Urutan, key `sort_newest` | Shared Preferences | Ya. |
+| Tampilan grid/daftar | State `HomeScreen` | Tidak dipersistenkan. |
+| Kata kunci dan filter aktif | State `HomeScreen` | Tidak dipersistenkan. |
+| Perubahan editor sebelum Simpan | Controller dan state editor | Belum tersimpan. |
 
 Pengaturan awal adalah tema terang dan urutan terbaru. Seluruh fungsi pencatatan yang tersedia bekerja pada penyimpanan lokal; belum ada sinkronisasi akun atau cadangan melalui ekspor/impor.
 
@@ -615,20 +615,20 @@ flutter test --no-pub
 
 ### Cakupan tes
 
-| Berkas                                                      | Jumlah | Skenario yang diperiksa                                                                                                                                             |
-| ----------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [database_helper_test.dart](test/database_helper_test.dart) | 3      | CRUD, inisialisasi database yang dibagi antarpemanggil, migrasi data lama dan prioritas sematan.                                                                    |
-| [home_screen_test.dart](test/home_screen_test.dart)         | 4      | Filter kategori + sematan pada layar kecil, pencarian dan pembersihan, gagal memuat lalu coba lagi, batas waktu pemuatan.                                           |
-| [widget_test.dart](test/widget_test.dart)                   | 7      | Simpan kategori/warna/sematan, layar kecil dengan keyboard, konfirmasi perubahan, validasi, kegagalan simpan, batas waktu simpan, penyimpanan berhasil dan kembali. |
-| **Total**                                                   | **14** | **Seluruh tes fungsional lulus pada pemeriksaan terakhir.**                                                                                                         |
+| Berkas | Jumlah | Skenario yang diperiksa |
+| --- | --- | --- |
+| [database_helper_test.dart](test/database_helper_test.dart) | 3 | CRUD, inisialisasi database yang dibagi antarpemanggil, migrasi data lama dan prioritas sematan. |
+| [home_screen_test.dart](test/home_screen_test.dart) | 4 | Filter kategori + sematan pada layar kecil, pencarian dan pembersihan, gagal memuat lalu coba lagi, batas waktu pemuatan. |
+| [widget_test.dart](test/widget_test.dart) | 7 | Simpan kategori/warna/sematan, layar kecil dengan keyboard, konfirmasi perubahan, validasi, kegagalan simpan, batas waktu simpan, penyimpanan berhasil dan kembali. |
+| **Total** | **14** | **Seluruh tes fungsional lulus pada pemeriksaan terakhir.** |
 
 ### Bukti pemeriksaan
 
-| Pemeriksaan            | Hasil                       | Bukti                                                                       |
-| ---------------------- | --------------------------- | --------------------------------------------------------------------------- |
-| Analisis statis        | `No issues found!`          | [hasil_analisis.txt](laporan/hasil_analisis.txt)                            |
-| Tes otomatis           | `All tests passed!`, 14 tes | [hasil_pengujian.txt](laporan/hasil_pengujian.txt)                          |
-| Build Android debug    | APK berhasil dihasilkan     | Lokasi hasil build dijelaskan pada [bagian APK](#build-apk).                |
+| Pemeriksaan | Hasil | Bukti |
+| --- | --- | --- |
+| Analisis statis | `No issues found!` | [hasil_analisis.txt](laporan/hasil_analisis.txt) |
+| Tes otomatis | `All tests passed!`, 14 tes | [hasil_pengujian.txt](laporan/hasil_pengujian.txt) |
+| Build Android debug | APK berhasil dihasilkan | Lokasi hasil build dijelaskan pada [bagian APK](#build-apk). |
 | Pengambilan screenshot | 8 skenario capture berhasil | [Harness screenshot](tools/report_capture_test.dart) dan [galeri](#galeri). |
 
 **Tanggal bukti verifikasi: 23 Oktober 2026.** Delapan skenario pengambilan screenshot dijalankan secara terpisah dan tidak dihitung sebagai bagian dari 14 tes fungsional.
@@ -689,13 +689,13 @@ Build debug ditujukan untuk pengembangan dan demonstrasi. Konfigurasi release pa
 
 ## Laporan dan aset dokumentasi
 
-| Berkas                                                                     | Isi                                                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Berkas | Isi |
+| --- | --- |
 | [Laporan Word](laporan/Laporan_Catatan_Harian_Muhammad_Alif_Mujaddid.docx) | Dokumen 12 halaman yang dapat diedit, termasuk identitas, perancangan, database, dan 8 screenshot. |
-| [Laporan PDF](laporan/Laporan_Catatan_Harian_Muhammad_Alif_Mujaddid.pdf)   | Versi untuk dibaca atau dicetak dengan tata letak yang sudah diperiksa.                            |
-| [Arsip screenshot](laporan/Screenshots_Catatan_Harian.zip)                 | Delapan gambar PNG dalam satu ZIP.                                                                 |
-| [Panduan berkas laporan](laporan/README.md)                                | Penjelasan isi folder, metode screenshot, dan alat penyusunan laporan.                             |
-| [Folder screenshot](laporan/screenshots/)                                  | Gambar asli yang ditampilkan pada galeri README.                                                   |
+| [Laporan PDF](laporan/Laporan_Catatan_Harian_Muhammad_Alif_Mujaddid.pdf) | Versi untuk dibaca atau dicetak dengan tata letak yang sudah diperiksa. |
+| [Arsip screenshot](laporan/Screenshots_Catatan_Harian.zip) | Delapan gambar PNG dalam satu ZIP. |
+| [Panduan berkas laporan](laporan/README.md) | Penjelasan isi folder, metode screenshot, dan alat penyusunan laporan. |
+| [Folder screenshot](laporan/screenshots/) | Gambar asli yang ditampilkan pada galeri README. |
 
 Sampul laporan sudah berisi nama, NIM, dan kampus. Kolom **kelas** dan **dosen pengampu** masih dapat dilengkapi pada dokumen Word.
 
@@ -721,11 +721,11 @@ Aset akan ditulis ke `docs/assets/`. Gambar SVG pada README merupakan ilustrasi 
 
 ### Alat penyusunan laporan
 
-| Skrip                                      | Kegunaan dan kebutuhan                                                         |
-| ------------------------------------------ | ------------------------------------------------------------------------------ |
-| [create_report.py](tools/create_report.py) | Menyusun Word menggunakan `python-docx`.                                       |
+| Skrip | Kegunaan dan kebutuhan |
+| --- | --- |
+| [create_report.py](tools/create_report.py) | Menyusun Word menggunakan `python-docx`. |
 | [render_report.py](tools/render_report.py) | Mengekspor Word menjadi PDF melalui Microsoft Word dan `pywin32` pada Windows. |
-| [check_report.py](tools/check_report.py)   | Memeriksa halaman PDF dan membuat pratinjau menggunakan PyMuPDF serta Pillow.  |
+| [check_report.py](tools/check_report.py) | Memeriksa halaman PDF dan membuat pratinjau menggunakan PyMuPDF serta Pillow. |
 
 Alat laporan terpisah dari aplikasi Flutter. Skrip Python saat ini mengacu pada dependensi lokal di `build/report_tools`; folder tersebut bukan bagian dari dependensi runtime aplikasi dan tidak disertakan oleh Git.
 
@@ -842,12 +842,12 @@ Daftar berikut adalah **rencana**, bukan fitur yang sudah diimplementasikan:
 
 ## Identitas pengembang
 
-| Identitas      | Keterangan                           |
-| -------------- | ------------------------------------ |
-| Nama           | **Muhammad Alif Mujaddid**           |
-| NIM            | **240605110082**                     |
-| Institusi      | **UIN Maulana Malik Ibrahim Malang** |
-| Konteks proyek | UTS Multiplatform                    |
+| Identitas | Keterangan |
+| --- | --- |
+| Nama | **Muhammad Alif Mujaddid** |
+| NIM | **240605110082** |
+| Institusi | **UIN Maulana Malik Ibrahim Malang** |
+| Konteks proyek | UTS Multiplatform |
 
 Dokumentasi disusun berdasarkan implementasi pada proyek, hasil pengujian, dan screenshot data demonstrasi.
 

@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="28" viewBox="0 0 120 28" role="img" aria-label="SQLite: lokal">
+<clipPath id="r"><rect width="120" height="28" rx="7"/></clipPath>
+<g clip-path="url(#r)"><rect width="62" height="28" fill="#34463d"/><rect x="62" width="58" height="28" fill="#315e4b"/></g>
+<g font-family="Segoe UI,Arial,sans-serif" font-size="12" fill="white" text-anchor="middle"><text x="31.0" y="18">SQLite</text><text x="91.0" y="18" font-weight="600">lokal</text></g></svg>
